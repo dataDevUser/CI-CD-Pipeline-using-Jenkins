@@ -5,7 +5,7 @@ app = Flask(__name__)
 
 @app.route("/")
 def home():
-    return jsonify({"message": "Hello, Jenkins CI/CD Pipeline!"})
+    return jsonify({"message": "Hello, Jenkins CI/CD Pipeline! Auto-deployed via webhook."})
 
 
 @app.route("/health")
