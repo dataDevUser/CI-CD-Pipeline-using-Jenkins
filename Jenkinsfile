@@ -54,7 +54,11 @@ pipeline {
 
         stage('Deploy') {
             steps {
-                sh 'chmod +x deploy.sh && ./deploy.sh'
+                 sh '''
+                    export BUILD_ID=dontKillMe
+                    chmod +x deploy.sh
+                    ./deploy.sh
+                '''
             }
         }
     }
