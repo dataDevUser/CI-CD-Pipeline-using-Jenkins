@@ -22,7 +22,8 @@ if [ -f "$PID_FILE" ]; then
 fi
 
 echo "Starting Flask app on port $FLASK_PORT..."
-nohup python "$APP_NAME" > "$LOG_FILE" 2>&1 &
+setsid nohup python "$APP_NAME" > "$LOG_FILE" 2>&1 < /dev/null &
+disown
 NEW_PID=$!
 echo "$NEW_PID" > "$PID_FILE"
 
